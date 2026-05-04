@@ -15,9 +15,9 @@
       --bg: #0f2818;
       --bg-alt: #1a3a2e;
       --card: #1f3d32;
-      --green: #d4af37;
-      --green-dark: #b8930f;
-      --green-soft: #e8d5a8;
+      --gold: #d4af37;
+      --gold-dark: #b8930f;
+      --gold-soft: #e8d5a8;
       --orange: #d4824a;
       --text: #f5f0e6;
       --muted: #b8b8b8;
@@ -41,7 +41,7 @@
     img { max-width: 100%; display: block; }
 
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
-    section { padding: 10rem 0; }
+    section { padding: 10rem 2rem; }
     section.alt { background: var(--bg-alt); }
     .section-label {
       color: var(--orange);
@@ -55,7 +55,7 @@
     /* NAVIGATION */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(15, 40, 24, 0.92);
+      background: rgba(15, 40, 24, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -65,19 +65,19 @@
       padding: 1.2rem 2rem;
       display: flex; justify-content: space-between; align-items: center;
     }
-    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; color: var(--gold); }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
     .nav-links a { color: var(--text); font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--orange); }
+    .nav-links a:hover { color: var(--gold); }
     .nav-contact {
-      background: var(--green); color: #fff !important;
-      padding: 0.6rem 1.4rem; border-radius: 999px;
+      background: var(--gold); color: #000 !important;
+      padding: 0.6rem 1.4rem; border-radius: 999px; font-weight: 600;
     }
-    .nav-contact:hover { background: var(--green-dark); color: #fff !important; }
+    .nav-contact:hover { background: var(--gold-dark); color: #000 !important; }
 
     /* HERO */
-    .hero { padding: 8rem 0 10rem; }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
+    .hero { padding: 8rem 2rem 10rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem; align-items: center; }
     .hero h1 {
       font-family: 'Fraunces', serif; font-style: italic;
       font-size: 5.5rem; color: var(--orange); font-weight: 700;
@@ -86,28 +86,29 @@
     .hero p.lead { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
     .hero-pill {
       display: inline-block; padding: 0.5rem 1.2rem;
-      background: var(--green-soft); color: var(--green);
+      background: var(--gold-soft); color: #000;
       border-radius: 999px; font-size: 0.78rem;
       font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
     }
     .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
     .btn { padding: 0.85rem 1.8rem; border-radius: 999px; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; border: 1.5px solid transparent; cursor: pointer; }
-    .btn-primary { background: var(--green); color: #fff; }
-    .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .btn-primary { background: var(--gold); color: #000; }
+    .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
     .btn-ghost { background: transparent; color: var(--text); border-color: var(--text); }
     .btn-ghost:hover { background: var(--text); color: var(--bg); }
     .hero-img-wrap {
+      width: 100%;
+      max-width: 350px;
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: hidden;
       background: #d9d2c1 url('profil.jpg') center/cover;
-      max-width: 350px;
       margin: 0 auto;
     }
 
     /* OM MIG */
-    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
-    .about-text p { margin-bottom: 1.2rem; color: #333; font-size: 1.02rem; }
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: start; }
+    .about-text p { margin-bottom: 1.2rem; color: var(--text); font-size: 1.02rem; }
     .info-cards { display: grid; gap: 1rem; }
     .info-card {
       background: var(--card); border: 1px solid var(--border);
@@ -138,7 +139,7 @@
       border-radius: var(--radius); padding: 1.4rem 0.8rem;
       text-align: center; transition: transform 0.2s, box-shadow 0.2s;
     }
-    .skill:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    .skill:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255,255,255,0.1); }
     .skill img { width: 44px; height: 44px; margin: 0 auto 0.8rem; }
     .skill span {
       font-size: 0.72rem; color: var(--muted);
@@ -146,7 +147,7 @@
     }
 
     /* TIDSLINJE */
-    .timeline { position: relative; padding-left: 2.5rem; border-left: 2px solid var(--green); margin-top: 1.5rem; }
+    .timeline { position: relative; padding-left: 2.5rem; border-left: 2px solid var(--gold); margin-top: 1.5rem; }
     .timeline-item {
       position: relative; margin-bottom: 2.5rem;
       background: var(--card); border: 1px solid var(--border);
@@ -154,11 +155,11 @@
     }
     .timeline-item::before {
       content: ''; position: absolute; left: -3.05rem; top: 1.6rem;
-      width: 14px; height: 14px; background: var(--green);
+      width: 14px; height: 14px; background: var(--gold);
       border-radius: 50%; border: 3px solid var(--bg);
     }
     section.alt .timeline-item::before { border-color: var(--bg-alt); }
-    .timeline-date { color: var(--green); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .timeline-date { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
     .timeline-item h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 0.3rem; font-weight: 600; }
     .timeline-item .org { color: var(--orange); margin-bottom: 0.6rem; font-weight: 500; font-size: 0.95rem; }
     .timeline-item p { color: var(--muted); font-size: 0.95rem; }
@@ -174,11 +175,11 @@
       display: flex; flex-direction: column;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-    .project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
     .project-icon {
-      background: var(--green-soft); padding: 2.5rem;
+      background: var(--gold-soft); padding: 2.5rem;
       display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem;
+      font-size: 2.5rem; color: #000;
     }
     .project-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
     .project-type { color: var(--orange); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 0.6rem; }
@@ -190,14 +191,14 @@
       padding: 0.25rem 0.75rem; border-radius: 999px;
       font-size: 0.75rem; color: var(--muted);
     }
-    .project-card .repo-link { color: var(--green); font-size: 0.9rem; font-weight: 600; }
+    .project-card .repo-link { color: var(--gold); font-size: 0.9rem; font-weight: 600; }
     .project-card .repo-link:hover { color: var(--orange); }
 
     /* KONTAKT */
     section.contact {
-      background: #1a3a2e; color: #fff; padding: 8rem 0;
+      background: #1a3a2e; color: #fff; padding: 8rem 2rem;
     }
-    section.contact .section-label { color: var(--green-soft); }
+    section.contact .section-label { color: var(--gold); }
     section.contact h2 { color: #fff; }
     section.contact .section-subtitle { color: rgba(255,255,255,0.8); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: start; }
@@ -219,7 +220,7 @@
     input:focus, textarea:focus { outline: none; border-color: #fff; }
     textarea { min-height: 140px; resize: vertical; }
     form button {
-      background: #fff; color: var(--green); border: none;
+      background: #fff; color: #1a3a2e; border: none;
       padding: 1rem 2rem; border-radius: 999px;
       font-weight: 600; font-size: 1rem; cursor: pointer;
       justify-self: start; transition: transform 0.2s;
@@ -227,7 +228,7 @@
     form button:hover { transform: translateY(-2px); }
 
     footer {
-      padding: 2rem 0; text-align: center;
+      padding: 2rem; text-align: center;
       color: var(--muted); font-size: 0.9rem;
       border-top: 1px solid var(--border);
     }
@@ -238,7 +239,7 @@
       width: 44px; height: 44px; border-radius: 50%;
       background: var(--card); border: 1px solid var(--border);
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; z-index: 50; transition: transform 0.2s;
+      font-size: 1.2rem; z-index: 50; transition: transform 0.2s; color: var(--gold);
     }
     .to-top:hover { transform: translateY(-3px); }
 
@@ -246,11 +247,12 @@
     @media (max-width: 900px) {
       .hero h1 { font-size: 3.2rem; }
       h2 { font-size: 2rem; }
-      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .nav-links { gap: 1rem; }
       .nav-links li:not(:last-child) { display: none; }
-      section { padding: 4rem 0; }
-      .container { padding: 0 1.2rem; }
+      section { padding: 5rem 1.5rem; }
+      .hero { padding: 5rem 1.5rem; }
+      .container { padding: 0 1.5rem; }
     }
   </style>
 </head>
@@ -274,9 +276,9 @@
   <header id="hero" class="hero container">
     <div class="hero-grid">
       <div>
-        <span class="hero-pill">Söker tjänst som utvecklare</span>
+        <span class="hero-pill">Söker tjänst som utvecklare - remote</span>
         <h1>Nathalie Baskin</h1>
-        <p class="lead">Junior utvecklare · .NET &amp; Fullstack · Stockholm</p>
+        <p class="lead">Junior utvecklare · Fullstack · Stockholm</p>
         <div class="btn-row">
           <a href="#contact" class="btn btn-primary">Ta kontakt →</a>
           <a href="#projects" class="btn btn-ghost">Se projekt</a>
@@ -307,7 +309,7 @@
           </div>
           <div class="info-card">
             <div class="icon-circle">💼</div>
-            <div><strong>Bakgrund</strong><span>Fotografi & kreativ produktion</span></div>
+            <div><strong>Bakgrund</strong><span>Fotografi & omsorg</span></div>
           </div>
           <div class="info-card">
             <div class="icon-circle">🌍</div>
@@ -380,13 +382,13 @@
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2019</div>
-          <h3>Svenska värdektig understödjande</h3>
-          <div class="org">März - Juni</div>
-          <p>Understödjande psykiatri</p>
+          <h3>Svensk vård och kompetensutveckling</h3>
+          <div class="org">2015-2016</div>
+          <p>Undersköterska - psykiatri</p>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">2007–2012</div>
-          <h3>DAL Studio</h3>
+          <div class="timeline-date">2009–2012</div>
+          <h3>OAL Studio</h3>
           <div class="org">Praktik - Rörlig bild</div>
           <p></p>
         </div>
@@ -399,58 +401,54 @@
     <div class="container">
       <div class="section-label">Projekt</div>
       <h2 class="serif" style="font-style: italic;">Vad har jag byggt?</h2>
-      <p class="section-subtitle">Urval av projekt från utbildningen.</p>
+      <p class="section-subtitle">Urval av projekt.</p>
       <div class="projects-grid">
 
         <div class="project-card">
           <div class="project-icon">💬</div>
           <div class="project-body">
-            <div class="project-type">Webbapplikation</div>
-            <h3>Projektnamn</h3>
-            <p>Kort beskrivning av projektet — vad det gör, vilka funktioner som finns och vad du lärde dig.</p>
+            <h3>NABASKI</h3>
+            <p>Responsiv portfolio-webbapplikation utvecklad i React med integrerat bokningssystem. Applikationen möjliggör för besökare att boka möten eller konsultationer direkt via en användarvänlig bokningsmodul. Backend är kopplat till SQLite3-databas för persistent datalagring av bokningar och användarinformation.</p>
             <div class="tags">
-              <span class="tag">C#</span><span class="tag">.NET</span><span class="tag">SQL</span>
+              <span class="tag">React</span><span class="tag">SQLite3</span><span class="tag">Booking</span>
             </div>
-            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+            <a href="https://github.com/NathalieBaskin" target="_blank" class="repo-link">GitHub repo →</a>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-icon">📚</div>
           <div class="project-body">
-            <div class="project-type">Databasprojekt</div>
-            <h3>Projektnamn</h3>
-            <p>Kort beskrivning av projektet.</p>
+            <h3>RIFTHUB</h3>
+            <p>Fullstack webbapplikation – Social community. En komplett fullstack-webbapplikation för social interaktion mellan användare. Frontendet är utvecklat med React och Tailwind CSS, backend använder SQLite3 som relationsdatabas. Applikationen implementerar kärnfunktionaliteter såsom användarautentisering, användarhantering (CRUD-operationer), vänlistor, realtidschatt, forummodul, livestreamingintegration och administratörsövervakning.</p>
             <div class="tags">
-              <span class="tag">C#</span><span class="tag">Entity Framework</span>
+              <span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">SQLite3</span>
             </div>
-            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+            <a href="https://github.com/NathalieBaskin" target="_blank" class="repo-link">GitHub repo →</a>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-icon">🎵</div>
-          <div class="project-body">
-            <div class="project-type">Webbsida</div>
-            <h3>Projektnamn</h3>
-            <p>Kort beskrivning av projektet.</p>
+          <div class="project-body"> 
+            <h3>BINGE BOX</h3>
+            <p>Fullstack webbapplikation – Binge Box, en plattform för film- och seriefans. Applikationen möjliggör användarregistrering och autentisering för att skapa personliga konton. Användare kan söka, utforska och skriva recensioner för filmer och TV-serier, samt bygga egna favoritlekalistar. Frontendet är utvecklat i React och Tailwind CSS för modern och responsiv användarupplevelse. Backend integrerar möjligen en extern film-API (TMDb) för att hämta filmdata.</p>
             <div class="tags">
-              <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
+              <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">TMDb API</span>
             </div>
-            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+            <a href="https://github.com/Namahka/Binge-Box" target="_blank" class="repo-link">GitHub repo →</a>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-icon">📦</div>
           <div class="project-body">
-            <div class="project-type">Grupprojekt</div>
-            <h3>Projektnamn</h3>
-            <p>Kort beskrivning av projektet.</p>
+            <h3>Derma Nordic Med Spa</h3>
+            <p>Ensidesapplikation (SPA) för medicinsk spa-klinik utvecklad i Angular med TypeScript. Implementerade bokningssystem för behandlingar, e-handelsplattform och SQLite3-databasintegration. Frontendet är responsivt och användarcentrerat med fokus på modern design och enkel navigering.</p>
             <div class="tags">
-              <span class="tag">C#</span><span class="tag">Agilt</span>
+              <span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">SQLite3</span>
             </div>
-            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+            <a href="https://github.com/NathalieBaskin" target="_blank" class="repo-link">GitHub repo →</a>
           </div>
         </div>
 
@@ -516,7 +514,7 @@
   </section>
 
   <footer>
-    © 2026 Nathalie Baskin · <a href="#hero" style="color: var(--green); font-weight: 600;">Tillbaka upp ↑</a>
+    © 2026 Nathalie Baskin · <a href="#hero" style="color: var(--gold); font-weight: 600;">Tillbaka upp ↑</a>
   </footer>
 
   <a href="#hero" class="to-top" title="Till toppen">↑</a>
