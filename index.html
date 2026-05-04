@@ -62,7 +62,7 @@
     .nav-inner {
       max-width: var(--max-w);
       margin: 0 auto;
-      padding: 1.2rem 2rem;
+      padding: 0.8rem 2rem;
       display: flex; justify-content: space-between; align-items: center;
     }
     .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; color: var(--gold); }
@@ -102,7 +102,7 @@
       aspect-ratio: 1;
       border-radius: 50%;
       overflow: hidden;
-      background: #d9d2c1 url('profil.jpg') center/cover;
+      background: #d9d2c1;
       margin: 0 auto;
     }
 
@@ -260,7 +260,6 @@
 
   <nav>
     <div class="nav-inner">
-      <a href="#hero" class="nav-logo">Nathalie Baskin</a>
       <ul class="nav-links">
         <li><a href="#about">Om mig</a></li>
         <li><a href="#skills">Kompetenser</a></li>
@@ -280,7 +279,7 @@
         <h1>Nathalie Baskin</h1>
         <p class="lead">Junior utvecklare · Fullstack · Stockholm</p>
         <div class="btn-row">
-          <a href="#contact" class="btn btn-primary">Ta kontakt →</a>
+          <a href="#contact" class="btn btn-primary">Kontakt →</a>
           <a href="#projects" class="btn btn-ghost">Se projekt</a>
         </div>
       </div>
@@ -300,19 +299,15 @@
         </div>
         <div class="info-cards">
           <div class="info-card">
-            <div class="icon-circle">🎓</div>
             <div><strong>Utbildning</strong><span>EC Utbildning - Frontend, 2024-2026</span></div>
           </div>
           <div class="info-card">
-            <div class="icon-circle">📍</div>
             <div><strong>Ort</strong><span>Stockholm, Sverige</span></div>
           </div>
           <div class="info-card">
-            <div class="icon-circle">💼</div>
             <div><strong>Bakgrund</strong><span>Fotografi & omsorg</span></div>
           </div>
           <div class="info-card">
-            <div class="icon-circle">🌍</div>
             <div><strong>Språk</strong><span>Svenska, Engelska</span></div>
           </div>
         </div>
@@ -370,8 +365,6 @@
   <!-- UTBILDNING -->
   <section id="education" class="alt">
     <div class="container">
-      <div class="section-label">Utbildning</div>
-      <h2 class="serif" style="font-style: italic;">Akademisk bakgrund</h2>
       <p class="section-subtitle">Mina utbildningar.</p>
       <div class="timeline">
         <div class="timeline-item">
@@ -405,7 +398,6 @@
       <div class="projects-grid">
 
         <div class="project-card">
-          <div class="project-icon">💬</div>
           <div class="project-body">
             <h3>NABASKI</h3>
             <p>Responsiv portfolio-webbapplikation utvecklad i React med integrerat bokningssystem. Applikationen möjliggör för besökare att boka möten eller konsultationer direkt via en användarvänlig bokningsmodul. Backend är kopplat till SQLite3-databas för persistent datalagring av bokningar och användarinformation.</p>
@@ -417,7 +409,6 @@
         </div>
 
         <div class="project-card">
-          <div class="project-icon">📚</div>
           <div class="project-body">
             <h3>RIFTHUB</h3>
             <p>Fullstack webbapplikation – Social community. En komplett fullstack-webbapplikation för social interaktion mellan användare. Frontendet är utvecklat med React och Tailwind CSS, backend använder SQLite3 som relationsdatabas. Applikationen implementerar kärnfunktionaliteter såsom användarautentisering, användarhantering (CRUD-operationer), vänlistor, realtidschatt, forummodul, livestreamingintegration och administratörsövervakning.</p>
@@ -429,7 +420,6 @@
         </div>
 
         <div class="project-card">
-          <div class="project-icon">🎵</div>
           <div class="project-body"> 
             <h3>BINGE BOX</h3>
             <p>Fullstack webbapplikation – Binge Box, en plattform för film- och seriefans. Applikationen möjliggör användarregistrering och autentisering för att skapa personliga konton. Användare kan söka, utforska och skriva recensioner för filmer och TV-serier, samt bygga egna favoritlekalistar. Frontendet är utvecklat i React och Tailwind CSS för modern och responsiv användarupplevelse. Backend integrerar möjligen en extern film-API (TMDb) för att hämta filmdata.</p>
@@ -441,7 +431,6 @@
         </div>
 
         <div class="project-card">
-          <div class="project-icon">📦</div>
           <div class="project-body">
             <h3>Derma Nordic Med Spa</h3>
             <p>Ensidesapplikation (SPA) för medicinsk spa-klinik utvecklad i Angular med TypeScript. Implementerade bokningssystem för behandlingar, e-handelsplattform och SQLite3-databasintegration. Frontendet är responsivt och användarcentrerat med fokus på modern design och enkel navigering.</p>
@@ -461,7 +450,6 @@
     <div class="container">
       <div class="section-label">Erfarenhet</div>
       <h2 class="serif" style="font-style: italic;">Arbetslivsbakgrund</h2>
-      <p class="section-subtitle">Mina roller och vad de gett mig.</p>
       <div class="timeline">
         <div class="timeline-item">
           <div class="timeline-date">2025–2026</div>
