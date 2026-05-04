@@ -52,22 +52,24 @@
     }
 
     /* NAVIGATION */
-  nav {
+nav {
   position: sticky;
   top: 0;
   z-index: 100;
   background: rgba(15, 40, 24, 0.95);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
-  width: 100%; 
+  width: 100%;
 }
 
-.nav-links {
+.nav-inner {
+  max-width: none;
+  width: 100%;
+  margin: 0;
+  padding: 0.8rem 2rem;
   display: flex;
-  gap: 2.2rem;
-  list-style: none;
+  justify-content: flex-end; 
   align-items: center;
-  margin-left: auto; 
 }
     }
     .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; color: var(--gold); }
