@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio – Ditt Namn</title>
+  <meta name="description" content="Portfolio för [Ditt Namn] – systemutvecklare." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #f5f0e6;
+      --bg-alt: #ede6d6;
+      --card: #ffffff;
+      --green: #2d5a3f;
+      --green-dark: #234731;
+      --green-soft: #d4e5d4;
+      --orange: #d4824a;
+      --text: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #e0d9c8;
+      --radius: 12px;
+      --max-w: 1200px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    h1, h2, h3.serif { font-family: 'Fraunces', Georgia, serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+    h2 { font-size: 2.8rem; margin-bottom: 0.5rem; }
+    .section-subtitle { color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
+    section { padding: 6rem 0; }
+    section.alt { background: var(--bg-alt); }
+    .section-label {
+      color: var(--orange);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    /* NAVIGATION */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(245, 240, 230, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 1.2rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; }
+    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
+    .nav-links a { color: var(--text); font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--orange); }
+    .nav-contact {
+      background: var(--green); color: #fff !important;
+      padding: 0.6rem 1.4rem; border-radius: 999px;
+    }
+    .nav-contact:hover { background: var(--green-dark); color: #fff !important; }
+
+    /* HERO */
+    .hero { padding: 5rem 0 6rem; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 4rem; align-items: center; }
+    .hero h1 {
+      font-family: 'Fraunces', serif; font-style: italic;
+      font-size: 5rem; color: var(--orange); font-weight: 700;
+      margin: 1.5rem 0 1.2rem;
+    }
+    .hero p.lead { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
+    .hero-pill {
+      display: inline-block; padding: 0.5rem 1.2rem;
+      background: var(--green-soft); color: var(--green);
+      border-radius: 999px; font-size: 0.78rem;
+      font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+    }
+    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn { padding: 0.85rem 1.8rem; border-radius: 999px; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; border: 1.5px solid transparent; cursor: pointer; }
+    .btn-primary { background: var(--green); color: #fff; }
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); }
+    .btn-ghost { background: transparent; color: var(--text); border-color: var(--text); }
+    .btn-ghost:hover { background: var(--text); color: var(--bg); }
+    .hero-img-wrap {
+      aspect-ratio: 0.85;
+      border-radius: 50% / 45%;
+      overflow: hidden;
+      background: #d9d2c1 url('profil.jpg') center/cover;
+    }
+
+    /* OM MIG */
+    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: start; }
+    .about-text p { margin-bottom: 1.2rem; color: #333; font-size: 1.02rem; }
+    .info-cards { display: grid; gap: 1rem; }
+    .info-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.2rem 1.4rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .info-card .icon-circle {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--bg-alt); display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .info-card strong { display: block; margin-bottom: 0.15rem; font-size: 0.98rem; }
+    .info-card span { color: var(--muted); font-size: 0.88rem; }
+
+    /* KOMPETENSER */
+    .skills-group { margin-bottom: 2.5rem; }
+    .skills-group h3 {
+      color: var(--orange); font-size: 0.8rem;
+      text-transform: uppercase; letter-spacing: 0.18em;
+      margin-bottom: 1.2rem; font-weight: 600;
+    }
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      gap: 1rem;
+    }
+    .skill {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.4rem 0.8rem;
+      text-align: center; transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .skill:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06); }
+    .skill img { width: 44px; height: 44px; margin: 0 auto 0.8rem; }
+    .skill span {
+      font-size: 0.72rem; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;
+    }
+
+    /* TIDSLINJE */
+    .timeline { position: relative; padding-left: 2.5rem; border-left: 2px solid var(--green); margin-top: 1.5rem; }
+    .timeline-item {
+      position: relative; margin-bottom: 2.5rem;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem 1.8rem;
+    }
+    .timeline-item::before {
+      content: ''; position: absolute; left: -3.05rem; top: 1.6rem;
+      width: 14px; height: 14px; background: var(--green);
+      border-radius: 50%; border: 3px solid var(--bg);
+    }
+    section.alt .timeline-item::before { border-color: var(--bg-alt); }
+    .timeline-date { color: var(--green); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
+    .timeline-item h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 0.3rem; font-weight: 600; }
+    .timeline-item .org { color: var(--orange); margin-bottom: 0.6rem; font-weight: 500; font-size: 0.95rem; }
+    .timeline-item p { color: var(--muted); font-size: 0.95rem; }
+
+    /* PROJEKT */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.06); }
+    .project-icon {
+      background: var(--green-soft); padding: 2.5rem;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.5rem;
+    }
+    .project-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+    .project-type { color: var(--orange); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 0.6rem; }
+    .project-card h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 0.7rem; font-weight: 600; }
+    .project-card p { color: var(--muted); font-size: 0.92rem; flex-grow: 1; margin-bottom: 1.2rem; }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+    .tag {
+      background: transparent; border: 1px solid var(--border);
+      padding: 0.25rem 0.75rem; border-radius: 999px;
+      font-size: 0.75rem; color: var(--muted);
+    }
+    .project-card .repo-link { color: var(--green); font-size: 0.9rem; font-weight: 600; }
+    .project-card .repo-link:hover { color: var(--orange); }
+
+    /* KONTAKT */
+    section.contact {
+      background: var(--green); color: #fff; padding: 6rem 0;
+    }
+    section.contact .section-label { color: var(--green-soft); }
+    section.contact h2 { color: #fff; }
+    section.contact .section-subtitle { color: rgba(255,255,255,0.8); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: start; }
+    .contact-info { display: grid; gap: 1rem; }
+    .contact-info .info-card {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      color: #fff;
+    }
+    .contact-info .info-card .icon-circle { background: rgba(255,255,255,0.1); }
+    .contact-info .info-card span { color: rgba(255,255,255,0.7); }
+    form { display: grid; gap: 1rem; }
+    form label { font-size: 0.85rem; font-weight: 500; display: block; margin-bottom: 0.5rem; }
+    input, textarea {
+      background: transparent; border: 1px solid rgba(255,255,255,0.3);
+      color: #fff; padding: 1rem 1.2rem; border-radius: var(--radius);
+      font-family: inherit; font-size: 1rem; width: 100%;
+    }
+    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.5); }
+    input:focus, textarea:focus { outline: none; border-color: #fff; }
+    textarea { min-height: 140px; resize: vertical; }
+    form button {
+      background: #fff; color: var(--green); border: none;
+      padding: 1rem 2rem; border-radius: 999px;
+      font-weight: 600; font-size: 1rem; cursor: pointer;
+      justify-self: start; transition: transform 0.2s;
+    }
+    form button:hover { transform: translateY(-2px); }
+
+    footer {
+      padding: 2rem 0; text-align: center;
+      color: var(--muted); font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    /* TILLBAKA UPP */
+    .to-top {
+      position: fixed; bottom: 2rem; right: 2rem;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; z-index: 50; transition: transform 0.2s;
+    }
+    .to-top:hover { transform: translateY(-3px); }
+
+    /* RESPONSIV */
+    @media (max-width: 900px) {
+      .hero h1 { font-size: 3.2rem; }
+      h2 { font-size: 2rem; }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links li:not(:last-child) { display: none; }
+      section { padding: 4rem 0; }
+      .container { padding: 0 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Ditt Namn</a>
+      <ul class="nav-links">
+        <li><a href="#about">Om mig</a></li>
+        <li><a href="#skills">Kompetenser</a></li>
+        <li><a href="#education">Utbildning</a></li>
+        <li><a href="#projects">Projekt</a></li>
+        <li><a href="#experience">Erfarenhet</a></li>
+        <li><a href="#contact" class="nav-contact">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="hero" class="hero container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-pill">Söker tjänst som systemutvecklare</span>
+        <h1>Ditt Namn</h1>
+        <p class="lead">Blivande systemutvecklare · .NET &amp; Fullstack · Stockholm</p>
+        <div class="btn-row">
+          <a href="#contact" class="btn btn-primary">Ta kontakt →</a>
+          <a href="#projects" class="btn btn-ghost">Se projekt</a>
+        </div>
+      </div>
+      <div class="hero-img-wrap" aria-label="Profilbild"></div>
+    </div>
+  </header>
+
+  <!-- OM MIG -->
+  <section id="about" class="alt">
+    <div class="container">
+      <div class="section-label">Om mig</div>
+      <h2 class="serif" style="font-style: italic;">Vem är jag?</h2>
+      <div class="about-grid" style="margin-top: 2.5rem;">
+        <div class="about-text">
+          <p>Skriv en kort presentation om dig själv här. Berätta om din bakgrund, vad som driver dig och vilka egenskaper du tar med dig in i rollen som utvecklare.</p>
+          <p>Andra stycket: berätta om din utbildning, vad du har jobbat med och eventuella sidor av dig själv som är relevanta för en arbetsgivare.</p>
+        </div>
+        <div class="info-cards">
+          <div class="info-card">
+            <div class="icon-circle">🎓</div>
+            <div><strong>Utbildning</strong><span>Skola, år</span></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-circle">📍</div>
+            <div><strong>Ort</strong><span>Stockholm, Sverige</span></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-circle">💼</div>
+            <div><strong>Bakgrund</strong><span>Tidigare roller</span></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-circle">🌍</div>
+            <div><strong>Språk</strong><span>Svenska, Engelska</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KOMPETENSER -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label">Kompetenser</div>
+      <h2 class="serif" style="font-style: italic;">Vad kan jag?</h2>
+      <p class="section-subtitle">Mina huvudsakliga verktyg och teknologier.</p>
+
+      <div class="skills-group">
+        <h3>Backend &amp; Fullstack</h3>
+        <div class="skills-grid">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><span>C#</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET"><span>.NET</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server"><span>SQL Server</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL"><span>PostgreSQL</span></div>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3>Frontend</h3>
+        <div class="skills-grid">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"><span>Next.js</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>Tailwind CSS</span></div>
+        </div>
+      </div>
+
+      <div class="skills-group">
+        <h3>DevOps &amp; Verktyg</h3>
+        <div class="skills-grid">
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure"><span>Azure</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
+          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UTBILDNING -->
+  <section id="education" class="alt">
+    <div class="container">
+      <div class="section-label">Utbildning</div>
+      <h2 class="serif" style="font-style: italic;">Akademisk bakgrund</h2>
+      <p class="section-subtitle">Mina utbildningar.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2024–2026</div>
+          <h3>Systemutvecklare .NET</h3>
+          <div class="org">Newton Kompetensutveckling</div>
+          <p>Beskriv utbildningen kort: inriktning, fokusområden och eventuella LIA-perioder.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2021–2024</div>
+          <h3>Gymnasium</h3>
+          <div class="org">Skolans namn</div>
+          <p>Inriktning och kort beskrivning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJEKT -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label">Projekt</div>
+      <h2 class="serif" style="font-style: italic;">Vad har jag byggt?</h2>
+      <p class="section-subtitle">Urval av projekt från utbildningen.</p>
+      <div class="projects-grid">
+
+        <div class="project-card">
+          <div class="project-icon">💬</div>
+          <div class="project-body">
+            <div class="project-type">Webbapplikation</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet — vad det gör, vilka funktioner som finns och vad du lärde dig.</p>
+            <div class="tags">
+              <span class="tag">C#</span><span class="tag">.NET</span><span class="tag">SQL</span>
+            </div>
+            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">📚</div>
+          <div class="project-body">
+            <div class="project-type">Databasprojekt</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet.</p>
+            <div class="tags">
+              <span class="tag">C#</span><span class="tag">Entity Framework</span>
+            </div>
+            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🎵</div>
+          <div class="project-body">
+            <div class="project-type">Webbsida</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet.</p>
+            <div class="tags">
+              <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
+            </div>
+            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">📦</div>
+          <div class="project-body">
+            <div class="project-type">Grupprojekt</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet.</p>
+            <div class="tags">
+              <span class="tag">C#</span><span class="tag">Agilt</span>
+            </div>
+            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ERFARENHET -->
+  <section id="experience" class="alt">
+    <div class="container">
+      <div class="section-label">Erfarenhet</div>
+      <h2 class="serif" style="font-style: italic;">Arbetslivsbakgrund</h2>
+      <p class="section-subtitle">Mina roller och vad de gett mig.</p>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-date">2023–nu</div>
+          <h3>Roll</h3>
+          <div class="org">Företag</div>
+          <p>Beskriv vad du gjorde, ansvar och vad du tog med dig från rollen.</p>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-date">2025–2026</div>
+          <h3>LIA – Fullstackutvecklare</h3>
+          <div class="org">Företag</div>
+          <p>Kort beskrivning av LIA-perioden, tekniker och vad du jobbade med.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-label">Kontakt</div>
+      <h2 class="serif" style="font-style: italic;">Låt oss prata!</h2>
+      <p class="section-subtitle">Intresserad av att träffas för ett möte? Hör av dig!</p>
+      <div class="contact-grid" style="margin-top: 2.5rem;">
+        <div class="contact-info">
+          <div class="info-card">
+            <div class="icon-circle">✉️</div>
+            <div><strong>E-post</strong><span>din@email.se</span></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-circle">💼</div>
+            <div><strong>LinkedIn</strong><span>linkedin.com/in/dittnamn</span></div>
+          </div>
+          <div class="info-card">
+            <div class="icon-circle">🐙</div>
+            <div><strong>GitHub</strong><span>github.com/dittnamn</span></div>
+          </div>
+        </div>
+        <form onsubmit="event.preventDefault(); window.location.href='mailto:din@email.se?subject=Hej!&body=' + encodeURIComponent(this.message.value);">
+          <div>
+            <label for="name">Namn</label>
+            <input id="name" type="text" name="name" placeholder="Ditt namn" required />
+          </div>
+          <div>
+            <label for="email">E-post</label>
+            <input id="email" type="email" name="email" placeholder="din@email.se" required />
+          </div>
+          <div>
+            <label for="message">Meddelande</label>
+            <textarea id="message" name="message" placeholder="Skriv ditt meddelande här..." required></textarea>
+          </div>
+          <button type="submit">Skicka meddelande →</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Ditt Namn · <a href="#hero" style="color: var(--green); font-weight: 600;">Tillbaka upp ↑</a>
+  </footer>
+
+  <a href="#hero" class="to-top" title="Till toppen">↑</a>
+
+</body>
+</html>
