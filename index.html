@@ -12,16 +12,16 @@
 
   <style>
     :root {
-      --bg: #f5f0e6;
-      --bg-alt: #ede6d6;
-      --card: #ffffff;
-      --green: #2d5a3f;
-      --green-dark: #234731;
-      --green-soft: #d4e5d4;
+      --bg: #0f2818;
+      --bg-alt: #1a3a2e;
+      --card: #1f3d32;
+      --green: #d4af37;
+      --green-dark: #b8930f;
+      --green-soft: #e8d5a8;
       --orange: #d4824a;
-      --text: #1a1a1a;
-      --muted: #6b6b6b;
-      --border: #e0d9c8;
+      --text: #f5f0e6;
+      --muted: #b8b8b8;
+      --border: #2a4a3f;
       --radius: 12px;
       --max-w: 1200px;
     }
@@ -41,7 +41,7 @@
     img { max-width: 100%; display: block; }
 
     .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
-    section { padding: 8rem 0; }
+    section { padding: 10rem 0; }
     section.alt { background: var(--bg-alt); }
     .section-label {
       color: var(--orange);
@@ -55,7 +55,7 @@
     /* NAVIGATION */
     nav {
       position: sticky; top: 0; z-index: 100;
-      background: rgba(245, 240, 230, 0.92);
+      background: rgba(15, 40, 24, 0.92);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
@@ -76,7 +76,7 @@
     .nav-contact:hover { background: var(--green-dark); color: #fff !important; }
 
     /* HERO */
-    .hero { padding: 7rem 0 8rem; }
+    .hero { padding: 8rem 0 10rem; }
     .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 5rem; align-items: center; }
     .hero h1 {
       font-family: 'Fraunces', serif; font-style: italic;
@@ -97,10 +97,12 @@
     .btn-ghost { background: transparent; color: var(--text); border-color: var(--text); }
     .btn-ghost:hover { background: var(--text); color: var(--bg); }
     .hero-img-wrap {
-      aspect-ratio: 0.85;
-      border-radius: 50% / 45%;
+      aspect-ratio: 1;
+      border-radius: 50%;
       overflow: hidden;
       background: #d9d2c1 url('profil.jpg') center/cover;
+      max-width: 350px;
+      margin: 0 auto;
     }
 
     /* OM MIG */
@@ -193,7 +195,7 @@
 
     /* KONTAKT */
     section.contact {
-      background: var(--green); color: #fff; padding: 6rem 0;
+      background: #1a3a2e; color: #fff; padding: 8rem 0;
     }
     section.contact .section-label { color: var(--green-soft); }
     section.contact h2 { color: #fff; }
@@ -272,9 +274,9 @@
   <header id="hero" class="hero container">
     <div class="hero-grid">
       <div>
-        <span class="hero-pill">Söker tjänst som utvecklare - remote</span>
+        <span class="hero-pill">Söker tjänst som utvecklare</span>
         <h1>Nathalie Baskin</h1>
-        <p class="lead">Junior utvecklare ·  Fullstack · Stockholm</p>
+        <p class="lead">Junior utvecklare · .NET &amp; Fullstack · Stockholm</p>
         <div class="btn-row">
           <a href="#contact" class="btn btn-primary">Ta kontakt →</a>
           <a href="#projects" class="btn btn-ghost">Se projekt</a>
@@ -305,7 +307,7 @@
           </div>
           <div class="info-card">
             <div class="icon-circle">💼</div>
-            <div><strong>Bakgrund</strong><span>Fotografi & omsorg</span></div>
+            <div><strong>Bakgrund</strong><span>Fotografi & kreativ produktion</span></div>
           </div>
           <div class="info-card">
             <div class="icon-circle">🌍</div>
@@ -378,13 +380,13 @@
         </div>
         <div class="timeline-item">
           <div class="timeline-date">2019</div>
-          <h3>Svensk vård och kompetensutveckling</h3>
-          <div class="org">2015-2016</div>
-          <p>Undersköterska - psykiatri</p>
+          <h3>Svenska värdektig understödjande</h3>
+          <div class="org">März - Juni</div>
+          <p>Understödjande psykiatri</p>
         </div>
         <div class="timeline-item">
-          <div class="timeline-date">2009–2012</div>
-          <h3>OAL Studio</h3>
+          <div class="timeline-date">2007–2012</div>
+          <h3>DAL Studio</h3>
           <div class="org">Praktik - Rörlig bild</div>
           <p></p>
         </div>
@@ -397,27 +399,28 @@
     <div class="container">
       <div class="section-label">Projekt</div>
       <h2 class="serif" style="font-style: italic;">Vad har jag byggt?</h2>
-      <p class="section-subtitle">Urval av projekt.</p>
+      <p class="section-subtitle">Urval av projekt från utbildningen.</p>
       <div class="projects-grid">
 
         <div class="project-card">
           <div class="project-icon">💬</div>
           <div class="project-body">
-            <h3>NABASKI</h3>
-            <p>esponsiv portfolio-webbapplikation utvecklad i React med integrerat bokningssystem. Applikationen möjliggör för besökare att boka möten eller konsultationer direkt via en användarvänlig bokningsmodul. Backend är kopplat till SQLite3-databas för persistent datalagring av bokningar och användarinformation.</p>
+            <div class="project-type">Webbapplikation</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet — vad det gör, vilka funktioner som finns och vad du lärde dig.</p>
             <div class="tags">
               <span class="tag">C#</span><span class="tag">.NET</span><span class="tag">SQL</span>
             </div>
-            <a href="https://github.com/Namahka/NABASKI" target="_blank" class="repo-link">GitHub repo →</a>
+            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-icon">📚</div>
           <div class="project-body">
-            <h3>RIFTHUB</h3>
-            <p>Fullstack webbapplikation – Social community
-En komplett fullstack-webbapplikation för social interaktion mellan användare. Frontendet är utvecklat med React och Tailwind CSS, backend använder SQLite3 som relationsdatabas. Applikationen implementerar kärnfunktionaliteter såsom användarautentisering, användarhantering (CRUD-operationer), vänlistor, realtidschatt, forummodul, livestreamingintegration och administratörsövervakning. </p>
+            <div class="project-type">Databasprojekt</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet.</p>
             <div class="tags">
               <span class="tag">C#</span><span class="tag">Entity Framework</span>
             </div>
@@ -427,23 +430,25 @@ En komplett fullstack-webbapplikation för social interaktion mellan användare.
 
         <div class="project-card">
           <div class="project-icon">🎵</div>
-          <div class="project-body"> 
-            <h3>BINGE BOX</h3>
-            <p>Fullstack webbapplikation – Binge Box, en plattform för film- och seriefans. Applikationen möjliggör användarregistrering och autentisering för att skapa personliga konton. Användare kan söka, utforska och skriva recensioner för filmer och TV-serier, samt bygga egna favoritlekalistar. Frontendet är utvecklat i React och Tailwind CSS för modern och responsiv användarupplevelse. Backend integrerar möjligen en extern film-API (TMDb) för att hämta filmdata.</p>
+          <div class="project-body">
+            <div class="project-type">Webbsida</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet.</p>
             <div class="tags">
-              <span class="tag">JavaScript</span><span class="tag">React</span><span class="tag">SQL</span>
+              <span class="tag">JavaScript</span><span class="tag">HTML</span><span class="tag">CSS</span>
             </div>
-            <a href="https://github.com/namahka/Binge-Box" target="_blank" class="repo-link">GitHub repo →</a>
+            <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
           </div>
         </div>
 
         <div class="project-card">
           <div class="project-icon">📦</div>
           <div class="project-body">
-            <h3>Derma Nordic Med Spa</h3>
-            <p> Responsiv portfolio-webbapplikation utvecklad i React med integrerat bokningssystem. Applikationen möjliggör för besökare att boka möten eller konsultationer direkt via en användarvänlig bokningsmodul. Backend är kopplat till SQLite3-databas för persistent datalagring av bokningar och användarinformation.</p>
+            <div class="project-type">Grupprojekt</div>
+            <h3>Projektnamn</h3>
+            <p>Kort beskrivning av projektet.</p>
             <div class="tags">
-              <span class="tag">C#</span><span class="tag">React</span>
+              <span class="tag">C#</span><span class="tag">Agilt</span>
             </div>
             <a href="https://github.com/dittnamn/projekt" target="_blank" class="repo-link">GitHub repo →</a>
           </div>
