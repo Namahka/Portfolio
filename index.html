@@ -52,18 +52,25 @@
     }
 
     /* NAVIGATION */
-    nav {
-      position: sticky; top: 0; z-index: 100;
-      background: rgba(15, 40, 24, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      margin: 0 auto;
-      padding: 0.8rem 2rem;
-      display: flex; justify-content: space-between; align-items: right;
-      width: 100%;
-      
+  nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(15, 40, 24, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  width: 100%; /* 👈 Lägg till */
+}
+
+.nav-inner {
+  max-width: none; /* 👈 Ändra detta */
+  width: 100%;
+  margin: 0;
+  padding: 0.8rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} 
     }
     .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; color: var(--gold); }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
