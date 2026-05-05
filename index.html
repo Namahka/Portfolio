@@ -71,7 +71,6 @@ nav {
   justify-content: flex-end; 
   align-items: center;
 }
-    }
     .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; color: var(--gold); }
     .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
     .nav-links a { color: var(--text); font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
@@ -265,6 +264,8 @@ nav {
       .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
       .nav-links { gap: 1rem; }
       .nav-links li:not(:last-child) { display: none; }
+      .nav-links li:last-child { display: none; }
+      .hero-pill { font-size: 0.65rem; padding: 0.4rem 0.9rem; }
       section { padding: 5rem 1.5rem; }
       .hero { padding: 5rem 1.5rem; }
       .container { padding: 0 1.5rem; }
@@ -444,6 +445,7 @@ nav {
         <div class="project-card">
           <div class="project-body"> 
             <h3>BINGE BOX</h3>
+            <img src="binge-box.jpg" alt="Binge Box" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;">
             <p>Fullstack webbapplikation – Binge Box, en plattform för film- och seriefans. Applikationen möjliggör användarregistrering och autentisering för att skapa personliga konton. Användare kan söka, utforska och skriva recensioner för filmer och TV-serier, samt bygga egna favoritlekalistar. Frontendet är utvecklat i React och Tailwind CSS för modern och responsiv användarupplevelse. Backend integrerar möjligen en extern film-API (TMDb) för att hämta filmdata.</p>
             <div class="tags">
               <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">TMDb API</span>
