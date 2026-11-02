@@ -1,0 +1,621 @@
+:root {
+  /* Colors */
+  --color-bg: #0f2818;
+  --color-bg-alt: #1a3a2e;
+  --color-card: #1f3d32;
+  --color-accent: #d4824a;
+  --color-accent-light: #e3925a;
+  --color-yellow: #d4af37;
+  --color-yellow-dark: #b8930f;
+  --color-badge: #e8d5a8;
+  --color-text: #f5f0e6;
+  --color-text-muted: #b8b8b8;
+  --color-border: #2a4a3f;
+
+  /* Fonts */
+  --font-heading: "Fraunces", Georgia, serif;
+  --font-body: "Inter", system-ui, sans-serif;
+
+  /* Spacing and shapes */
+  --page-padding: 1.5rem;
+  --radius: 12px;
+  --radius-pill: 999px;
+}
+
+/* ==========================================================
+   GLOBAL STYLES
+   ========================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  line-height: 1.6;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+img,
+video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  line-height: 1.1;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+}
+
+/* Hides text visually but keeps it available for screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================
+   HEADER & NAVIGATION
+   ========================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.75rem var(--page-padding);
+  background-color: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.menu-toggle {
+  padding: 0.4rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+}
+
+/* Dropdown menu on mobile. The list is a popover which the browser
+   centers on the screen by default. inset: auto and margin: 0 remove
+   that so top and right can place it under the menu button. */
+.nav-links {
+  position: fixed;
+  inset: auto;
+  top: 4rem;
+  right: var(--page-padding);
+  min-width: 12rem;
+  margin: 0;
+  padding: 0.5rem;
+  color: var(--color-text);
+  background-color: color-mix(
+    in srgb,
+    var(--color-bg-alt) 60%,
+    transparent
+  ); /* 60% opaque */
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+.nav-links a {
+  display: block;
+  padding: 0.6rem 0.75rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  color: var(--color-yellow);
+}
+
+/* ==========================================================
+   SECTIONS (shared by all sections)
+   ========================================================== */
+
+section {
+  padding: 4rem var(--page-padding);
+}
+
+section[id] {
+  scroll-margin-top: 4rem;
+}
+
+.section-alt {
+  background-color: var(--color-bg-alt);
+}
+
+.section-label {
+  margin-bottom: 1rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
+.section-title {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  font-style: italic;
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-bottom: 2.5rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   HERO
+   ========================================================== */
+
+#hero {
+  padding-top: 3rem;
+  padding-bottom: 0;
+}
+
+.hero-badge {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  padding: 0.4rem 0.9rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #000;
+  background-color: var(--color-badge);
+  border-radius: var(--radius-pill);
+}
+
+#hero h1 {
+  margin-bottom: 1.2rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.75rem, 10vw, 5.5rem);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.hero-tagline {
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85rem 1.8rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-decoration: none;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-pill);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  color: #000;
+  background-color: var(--color-yellow);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-yellow-dark);
+}
+
+.btn-outline {
+  color: var(--color-text);
+  border-color: var(--color-text);
+}
+
+.btn-outline:hover {
+  color: var(--color-bg);
+  background-color: var(--color-text);
+}
+
+.hero-photo {
+  width: min(22rem, 80%);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* ==========================================================
+   ABOUT
+   ========================================================== */
+
+.about-text {
+  max-width: 65ch;
+  margin-top: 2rem;
+}
+
+.about-text p {
+  margin-bottom: 1.2rem;
+}
+
+/* ==========================================================
+   SKILLS
+   ========================================================== */
+
+.skills-group {
+  margin-top: 2.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
+  gap: 1rem;
+}
+
+.skill {
+  padding: 1.4rem 0.8rem;
+  text-align: center;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.skill:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Centered icon */
+.skill img {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.8rem;
+}
+
+.skill span {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================
+   TIMELINE (education & experiences)
+   ========================================================== */
+
+/* The original orange is too low in contrast on the lighter
+   green background so labels there use a lighter shade (WCAG AA) */
+.section-alt .section-label {
+  color: var(--color-accent-light);
+}
+
+.education-list,
+.experiences-list {
+  display: grid;
+  gap: 2rem;
+  padding-left: 2rem;
+  border-left: 2px solid var(--color-yellow);
+}
+
+.education-item,
+.experience-item {
+  position: relative;
+  padding: 1.5rem;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+}
+
+/* Gold dot on the timeline. left: moves it past the list padding (2rem)
+   and centers the 16px dot on the 2px line (8px + 1px). */
+.education-item::before,
+.experience-item::before {
+  content: "";
+  position: absolute;
+  top: 1.6rem;
+  left: calc(-2rem - 9px);
+  width: 16px;
+  height: 16px;
+  background-color: var(--color-yellow);
+  border: 3px solid var(--color-bg-alt);
+  border-radius: 50%;
+}
+
+.education-item h3,
+.experience-item h3 {
+  margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+/* Date and description text */
+.education-item p,
+.experience-item p {
+  margin-bottom: 0.3rem;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+}
+
+.education-item p:first-of-type,
+.experience-item p:first-of-type {
+  font-weight: 500;
+  color: var(--color-accent-light);
+}
+
+.experience-description {
+  margin-top: 0.75rem;
+}
+
+/* ==========================================================
+   PROJECTS
+   ========================================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-title {
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.project-media,
+.website {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 1rem;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+/* The dimlit screenshot is a tall mobile screen so it is shown
+   in full instead of being cropped like the other images */
+.dimlit {
+  aspect-ratio: auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 360px;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+  object-fit: contain;
+}
+
+.project-description {
+  flex-grow: 1;
+  margin-bottom: 1.2rem;
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+}
+
+.project-note {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.project-tags li {
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+}
+
+.project-link {
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-yellow);
+  transition: color 0.2s ease;
+}
+
+.project-link:hover {
+  color: var(--color-accent-light);
+}
+
+/* ==========================================================
+   CONTACT
+   ========================================================== */
+
+.contact-methods {
+  display: grid;
+  gap: 0.75rem;
+  align-content: start;
+}
+
+.contact-link {
+  display: block;
+  padding: 1rem 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+  transition: border-color 0.2s ease;
+}
+
+.contact-link:hover {
+  border-color: var(--color-yellow);
+}
+
+/* ==========================================================
+   TABLET & DESKTOP (768px and wider)
+   ========================================================== */
+
+@media (min-width: 48rem) {
+  .menu-toggle {
+    display: none;
+  }
+
+  /* My styles override the browsers popover styles
+     so the list is always visible on larger screens */
+  .nav-links {
+    display: flex;
+    position: static;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0;
+    background: none;
+    backdrop-filter: none;
+    border: 0;
+  }
+
+  .nav-links a[href="#contact"] {
+    padding: 0.5rem 1.4rem;
+    font-weight: 600;
+    color: #000;
+    background-color: var(--color-yellow);
+    border-radius: var(--radius-pill);
+  }
+
+  .nav-links a[href="#contact"]:hover {
+    color: #000;
+    background-color: var(--color-yellow-dark);
+  }
+
+  section {
+    padding-inline: max(2rem, calc((100% - 71rem) / 2));
+  }
+
+  #hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    column-gap: clamp(2rem, 6vw, 6rem);
+    align-items: center;
+    min-height: 80vh;
+    padding-bottom: 4rem;
+  }
+
+  /* Everything except the photo goes in the first column.
+     :not() is needed because #hero has higher specificity than
+     .hero-photo and would otherwise force the photo into column 1 too. */
+  #hero > :not(.hero-photo) {
+    grid-column: 1;
+  }
+
+  .hero-badge {
+    justify-self: start;
+    font-size: 0.78rem;
+  }
+
+  .hero-actions {
+    margin-bottom: 0;
+  }
+
+  .hero-photo {
+    grid-column: 2;
+    grid-row: 1 / span 4;
+    width: clamp(16rem, 30vw, 22rem);
+  }
+
+  #contact {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    column-gap: 4rem;
+    align-items: start;
+  }
+
+  #contact > .section-label,
+  #contact > .section-title,
+  #contact > .subtitle {
+    grid-column: 1 / -1;
+  }
+
+  .contact-methods {
+    margin-bottom: 0;
+  }
+}
+
+/* ==========================================================
+   REDUCED MOTION
+   Respects users who have turned off animations in their
+   system settings, e.g. because motion makes them dizzy
+   ========================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

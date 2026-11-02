@@ -1,543 +1,667 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nathalie Baskin's portfolio – frontend developer with backend experience." />
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <style>
-    :root {
-      --bg: #0f2818;
-      --bg-alt: #1a3a2e;
-      --card: #1f3d32;
-      --gold: #d4af37;
-      --gold-dark: #b8930f;
-      --gold-soft: #e8d5a8;
-      --orange: #d4824a;
-      --text: #f5f0e6;
-      --muted: #b8b8b8;
-      --border: #2a4a3f;
-      --radius: 12px;
-      --max-w: 1200px;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    h1, h2, h3.serif { font-family: 'Fraunces', Georgia, serif; font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
-    h2 { font-size: 3.2rem; margin-bottom: 0.5rem; }
-    .section-subtitle { color: var(--muted); margin-bottom: 2.5rem; font-size: 1rem; }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
-
-    .container { max-width: var(--max-w); margin: 0 auto; padding: 0 2rem; }
-    section { padding: 10rem 2rem; }
-    section.alt { background: var(--bg-alt); }
-    .section-label {
-      color: var(--orange);
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      font-size: 0.8rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    /* NAVIGATION */
-nav {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(15, 40, 24, 0.95);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  width: 100%;
-}
-
-.nav-inner {
-  max-width: none;
-  width: 100%;
-  margin: 0;
-  padding: 0.8rem 2rem;
-  display: flex;
-  justify-content: flex-end; 
-  align-items: center;
-}
-    .nav-logo { font-family: 'Fraunces', serif; font-size: 1.1rem; font-weight: 600; color: var(--gold); }
-    .nav-links { display: flex; gap: 2.2rem; list-style: none; align-items: center; }
-    .nav-links a { color: var(--text); font-size: 0.95rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--gold); }
-    .nav-contact {
-      background: var(--gold); color: #000 !important;
-      padding: 0.6rem 1.4rem; border-radius: 999px; font-weight: 600;
-    }
-    .nav-contact:hover { background: var(--gold-dark); color: #000 !important; }
-
-    /* HERO */
-    .hero { padding: 8rem 2rem 10rem; }
-    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 6rem; align-items: center; }
-    .hero h1 {
-      font-family: 'Fraunces', serif; font-style: italic;
-      font-size: 5.5rem; color: var(--orange); font-weight: 700;
-      margin: 1.5rem 0 1.2rem;
-    }
-    .hero p.lead { color: var(--muted); font-size: 1.1rem; margin-bottom: 2rem; }
-    .hero-pill {
-      display: inline-block; padding: 0.5rem 1.2rem;
-      background: var(--gold-soft); color: #000;
-      border-radius: 999px; font-size: 0.78rem;
-      font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
-    }
-    .btn-row { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn { padding: 0.85rem 1.8rem; border-radius: 999px; font-weight: 500; font-size: 0.95rem; transition: all 0.2s; border: 1.5px solid transparent; cursor: pointer; }
-    .btn-primary { background: var(--gold); color: #000; }
-    .btn-primary:hover { background: var(--gold-dark); transform: translateY(-2px); }
-    .btn-ghost { background: transparent; color: var(--text); border-color: var(--text); }
-    .btn-ghost:hover { background: var(--text); color: var(--bg); }
-    .hero-img-wrap {
-      width: 100%;
-      max-width: 350px;
-      aspect-ratio: 1;
-      border-radius: 50%;
-      overflow: hidden;
-      background: #d9d2c1 url('profil.jpg') center/cover;
-      margin: 0 auto;
-    }
-
-    /* OM MIG */
-    .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 6rem; align-items: start; }
-    .about-text p { margin-bottom: 1.2rem; color: var(--text); font-size: 1.02rem; }
-    .info-cards { display: grid; gap: 1rem; }
-    .info-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.2rem 1.4rem;
-      display: flex; align-items: center; gap: 1rem;
-    }
-    .info-card .icon-circle {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--bg-alt); display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; flex-shrink: 0;
-    }
-    .info-card strong { display: block; margin-bottom: 0.15rem; font-size: 0.98rem; }
-    .info-card span { color: var(--muted); font-size: 0.88rem; }
-
-    /* KOMPETENSER */
-    .skills-group { margin-bottom: 2.5rem; }
-    .skills-group h3 {
-      color: var(--orange); font-size: 0.8rem;
-      text-transform: uppercase; letter-spacing: 0.18em;
-      margin-bottom: 1.2rem; font-weight: 600;
-    }
-    .skills-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 1rem;
-    }
-    .skill {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.4rem 0.8rem;
-      text-align: center; transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .skill:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(255,255,255,0.1); }
-    .skill img { width: 44px; height: 44px; margin: 0 auto 0.8rem; }
-    .skill span {
-      font-size: 0.72rem; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;
-    }
-
-    /* TIDSLINJE */
-    .timeline { position: relative; padding-left: 2.5rem; border-left: 2px solid var(--gold); margin-top: 1.5rem; }
-    .timeline-item {
-      position: relative; margin-bottom: 2.5rem;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 1.5rem 1.8rem;
-    }
-    .timeline-item::before {
-      content: ''; position: absolute; left: -3.05rem; top: 1.6rem;
-      width: 14px; height: 14px; background: var(--gold);
-      border-radius: 50%; border: 3px solid var(--bg);
-    }
-    section.alt .timeline-item::before { border-color: var(--bg-alt); }
-    .timeline-date { color: var(--gold); font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; }
-    .timeline-item h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 0.3rem; font-weight: 600; }
-    .timeline-item .org { color: var(--orange); margin-bottom: 0.6rem; font-weight: 500; font-size: 0.95rem; }
-    .timeline-item p { color: var(--muted); font-size: 0.95rem; }
-
-    /* PROJEKT */
-    .projects-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
-    }
-    .project-card {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .project-card video {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-  border-radius: var(--radius);
-  margin-bottom: 1rem;
-}
-    .project-card:hover { transform: translateY(-4px); box-shadow: 0 10px 25px rgba(0,0,0,0.3); }
-    .project-icon {
-      background: var(--gold-soft); padding: 2.5rem;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.5rem; color: #000;
-    }
-    .project-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
-    .project-type { color: var(--orange); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; margin-bottom: 0.6rem; }
-    .project-card h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 0.7rem; font-weight: 600; }
-    .project-card p { color: var(--muted); font-size: 0.92rem; flex-grow: 1; margin-bottom: 1.2rem; }
-    .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
-    .tag {
-      background: transparent; border: 1px solid var(--border);
-      padding: 0.25rem 0.75rem; border-radius: 999px;
-      font-size: 0.75rem; color: var(--muted);
-    }
-    .project-card .repo-link { color: var(--gold); font-size: 0.9rem; font-weight: 600; }
-    .project-card .repo-link:hover { color: var(--orange); }
-
-    /* KONTAKT */
-    section.contact {
-      background: #1a3a2e; color: #fff; padding: 8rem 2rem;
-    }
-    section.contact .section-label { color: var(--gold); }
-    section.contact h2 { color: #fff; }
-    section.contact .section-subtitle { color: rgba(255,255,255,0.8); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: start; }
-    .contact-info { display: grid; gap: 1rem; }
-    .contact-info .info-card {
-      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
-      color: #fff;
-    }
-    .contact-info .info-card .icon-circle { background: rgba(255,255,255,0.1); }
-    .contact-info .info-card span { color: rgba(255,255,255,0.7); }
-    form { display: grid; gap: 1rem; }
-    form label { font-size: 0.85rem; font-weight: 500; display: block; margin-bottom: 0.5rem; }
-    input, textarea {
-      background: transparent; border: 1px solid rgba(255,255,255,0.3);
-      color: #fff; padding: 1rem 1.2rem; border-radius: var(--radius);
-      font-family: inherit; font-size: 1rem; width: 100%;
-    }
-    input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.5); }
-    input:focus, textarea:focus { outline: none; border-color: #fff; }
-    textarea { min-height: 140px; resize: vertical; }
-    form button {
-      background: #fff; color: #1a3a2e; border: none;
-      padding: 1rem 2rem; border-radius: 999px;
-      font-weight: 600; font-size: 1rem; cursor: pointer;
-      justify-self: start; transition: transform 0.2s;
-    }
-    form button:hover { transform: translateY(-2px); }
-
-    footer {
-      padding: 2rem; text-align: center;
-      color: var(--muted); font-size: 0.9rem;
-      border-top: 1px solid var(--border);
-    }
-
-    /* TILLBAKA UPP */
-    .to-top {
-      position: fixed; bottom: 2rem; right: 2rem;
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--card); border: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.2rem; z-index: 50; transition: transform 0.2s; color: var(--gold);
-    }
-    .to-top:hover { transform: translateY(-3px); }
-
-    /* RESPONSIV */
-    @media (max-width: 900px) {
-      .hero h1 { font-size: 3.2rem; }
-      h2 { font-size: 2rem; }
-      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .nav-links { gap: 1rem; }
-      .nav-links li:not(:last-child) { display: none; }
-      .nav-links li:last-child { display: none; }
-      .hero-pill { font-size: 0.65rem; padding: 0.4rem 0.9rem; }
-      section { padding: 5rem 1.5rem; }
-      .hero { padding: 5rem 1.5rem; }
-      .container { padding: 0 1.5rem; }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <div class="nav-inner">
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact" class="nav-contact">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- HERO -->
-  <header id="hero" class="hero container">
-    <div class="hero-grid">
-      <div>
-        <span class="hero-pill">Seeking a remote developer position</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Nathalie Baskin, junior fullstack developer studying blockchain development."
+    />
+    <title>Nathalie Baskin Portfolio</title>
+    <link rel="icon" href="data:," />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,600;1,700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav aria-label="Main navigation">
+        <button class="menu-toggle" popovertarget="nav-menu">
+          Menu <span aria-hidden="true">▾</span>
+        </button>
+        <ul id="nav-menu" class="nav-links" popover>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experiences">Experiences</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="hero">
+        <p class="hero-badge">Seeking a remote developer position</p>
         <h1>Nathalie Baskin</h1>
-        <p class="lead">Junior Developer · Full-Stack · Stockholm</p>
-        <div class="btn-row">
+        <p class="hero-tagline">Junior Developer · Full-Stack · Stockholm</p>
+        <div class="hero-actions">
           <a href="#contact" class="btn btn-primary">Get in touch →</a>
-          <a href="#projects" class="btn btn-ghost">View projects</a>
+          <a href="#projects" class="btn btn-outline">View projects</a>
         </div>
-      </div>
-      <div class="hero-img-wrap" aria-label="Profile photo"></div>
-    </div>
-  </header>
+        <img
+          class="hero-photo"
+          src="images/profilepicture.webp"
+          alt="Portrait of Nathalie Baskin"
+          width="400"
+          height="400"
+          fetchpriority="high"
+        />
+      </section>
 
-  <!-- OM MIG -->
-  <section id="about" class="alt">
-    <div class="container">
-      <div class="section-label">About</div>
-      <h2 class="serif" style="font-style: italic;">Who am I?</h2>
-      <div class="about-grid" style="margin-top: 2.5rem;">
+      <!-- ABOUT -->
+      <section id="about" class="section-alt">
+        <p class="section-label">ABOUT</p>
+        <h2 class="section-title">Who am I?</h2>
         <div class="about-text">
-          <p>I’m a curious, solution-oriented frontend developer with backend experience. I’ve built full-stack applications independently and helped develop larger systems as part of a team. I’m currently studying blockchain development to expand my skills into Web3.</p>
-          <p>With a background in photography and creative production, I have a strong eye for detail and user-friendly design. I now channel that creativity into development, combining aesthetics and functionality to create digital solutions that are both polished and thoughtful.</p>
+          <p>
+            I’m a curious, solution-oriented frontend developer with backend
+            experience. I’ve built full-stack applications independently and
+            helped develop larger systems as part of a team. I’m currently
+            studying blockchain development to expand my skills into Web3.
+          </p>
+          <p>
+            With a background in photography and creative production, I have a
+            strong eye for detail and user-friendly design. I now channel that
+            creativity into development, combining aesthetics and functionality
+            to create digital solutions that are both polished and thoughtful.
+          </p>
         </div>
-        <div class="info-cards">
-          <div class="info-card">
-            <div><strong>Location</strong><span>Stockholm, Sweden</span></div>
-          </div>
-          <div class="info-card">
-            <div><strong>Languages</strong><span>Swedish, English</span></div>
-          </div>
+      </section>
+      <section id="skills" class="skills">
+        <p class="section-label">SKILLS</p>
+        <h2 class="section-title">What I can do</h2>
+        <div class="skills-group">
+          <h3 class="section-label">Backend &amp; Fullstack</h3>
+          <ul class="skills-grid">
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/csharp/csharp-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>C#</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dotnetcore/dotnetcore-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>.NET 8</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>ASP.NET Core</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/dot-net/dot-net-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Entity Framework</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/azuresqldatabase/azuresqldatabase-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>SQL Server</span>
+            </li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </section>
+        <div class="skills-group">
+          <h3 class="section-label">Frontend</h3>
+          <ul class="skills-grid">
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>HTML</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>CSS</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>JavaScript</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Tailwind CSS</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>React</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Angular</span>
+            </li>
 
-  <!-- KOMPETENSER -->
-  <section id="skills">
-    <div class="container">
-      <div class="section-label">Skills</div>
-      <h2 class="serif" style="font-style: italic;">What I Can Do</h2>
-
-      <div class="skills-group">
-        <h3>Backend &amp; Fullstack</h3>
-        <div class="skills-grid">
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#"><span>C#</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dotnetcore/dotnetcore-original.svg" alt=".NET"><span>.NET 8</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="ASP.NET Core"><span>ASP.NET Core</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dot-net/dot-net-original.svg" alt="Entity Framework"><span>Entity Framework</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server"><span>SQL Server</span></div>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>TypeScript</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Next.js</span>
+            </li>
+          </ul>
         </div>
-      </div>
-
-      <div class="skills-group">
-        <h3>Frontend</h3>
-        <div class="skills-grid">
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React"><span>React</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angular/angular-original.svg" alt="Angular"><span>Angular</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"><span>Next.js</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript"><span>TypeScript</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"><span>JavaScript</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"><span>HTML</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"><span>CSS</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind"><span>Tailwind CSS</span></div>
+        <div class="skills-group">
+          <h3 class="section-label">DevOps &amp; Tools</h3>
+          <ul class="skills-grid">
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visualstudio/visualstudio-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Visual Studio</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>VS Code</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Git</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>GitHub</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Figma</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/insomnia/insomnia-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Insomnia</span>
+            </li>
+            <li class="skill">
+              <img
+                src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/unity/unity-original.svg"
+                alt=""
+                width="44"
+                height="44"
+              />
+              <span>Unity</span>
+            </li>
+          </ul>
         </div>
-      </div>
-
-      <div class="skills-group">
-        <h3>DevOps &amp; Tools</h3>
-        <div class="skills-grid">
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/visualstudio/visualstudio-original.svg" alt="Visual Studio"><span>Visual Studio</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code"><span>VS Code</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"><span>Git</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"><span>GitHub</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" alt="Figma"><span>Figma</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/insomnia/insomnia-original.svg" alt="Insomnia"><span>Insomnia</span></div>
-          <div class="skill"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original.svg" alt="Unity"><span>Unity</span></div>
+      </section>
+      <!-- EDUCATION -->
+      <section id="education" class="section-alt">
+        <p class="section-label">EDUCATION</p>
+        <h2 class="section-title">Academic background</h2>
+        <p class="subtitle">Relevant education</p>
+        <ul class="education-list">
+          <li class="education-item">
+            <h3>Blockchain Developer</h3>
+            <p>Medieinstitutet</p>
+            <p>August 2026 – April 2028</p>
+          </li>
+          <li class="education-item">
+            <h3>Frontend Developer</h3>
+            <p>EC Utbildning</p>
+            <p>August 26, 2024 – June 5, 2026</p>
+          </li>
+        </ul>
+      </section>
+      <!-- PROJECTS -->
+      <section id="projects" class="projects">
+        <p class="section-label">PROJECTS</p>
+        <h2 class="section-title">What I have built</h2>
+        <p class="subtitle">A selection of my work</p>
+        <ul class="projects-grid">
+          <!-- BINGE BOX -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">BINGE BOX</h3>
+              <img
+                class="project-media"
+                src="images/bingebox.png"
+                alt="Start page of the Binge Box platform"
+                width="640"
+                height="400"
+                loading="lazy"
+              />
+              <p class="project-description">
+                Binge Box is a full-stack platform for film and TV fans. Users
+                can create personal accounts, search for and explore films and
+                TV shows, write reviews, and build their own watchlists. The
+                frontend is built with React and Tailwind CSS. The backend is a
+                REST API built with ASP.NET Core and C#. It retrieves film and
+                TV data from the TMDb API, and it stores accounts, reviews and
+                watchlists in an SQLite database using Entity Framework Core.
+              </p>
+              <ul class="project-tags">
+                <li>React</li>
+                <li>JavaScript</li>
+                <li>TMDb API</li>
+                <li>ASP.NET Core</li>
+                <li>C#</li>
+                <li>EF Core</li>
+                <li>SQLite3</li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://github.com/Namahka/Binge-Box"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub repo →</a
+              >
+            </article>
+          </li>
+          <!-- TRYGG -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">TRYGG</h3>
+              <img
+                class="project-media"
+                src="images/trygg.png"
+                alt="Start page of the TRYGG preschool platform"
+                width="640"
+                height="400"
+                loading="lazy"
+              />
+              <p class="project-description">
+                A secure preschool platform for guardians and teachers.
+                Guardians can view information about their children, read
+                department posts and schedules, and message staff, while
+                teachers manage their department’s children, posts and
+                schedules. Access control is enforced in the backend on every
+                request, so users can only reach data they are authorized to
+                see. The frontend is built with React and TypeScript, and the
+                backend with ASP.NET Core Web API, Clean Architecture, JWT,
+                Entity Framework Core and SQL Server.
+              </p>
+              <p class="project-note">Private repository</p>
+              <ul class="project-tags">
+                <li>React</li>
+                <li>TypeScript</li>
+                <li>ASP.NET Core</li>
+                <li>SQL Server</li>
+              </ul>
+            </article>
+          </li>
+          <!-- DOJO -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">DOJO – InFiNet Code</h3>
+              <img
+                class="project-media"
+                src="images/dojo.png"
+                alt="Start page of the DOJO learning management platform"
+                width="640"
+                height="400"
+                loading="lazy"
+              />
+              <p class="project-description">
+                A learning management platform built in a cross-functional Scrum
+                team during my internship at InFiNet Code. I developed fullstack
+                features including a YouTube video player with progress syncing,
+                course access control, downloadable course resources, lesson
+                notes with full CRUD, account reactivation and early certificate
+                generation. I also fixed server-side rendering issues in the
+                authentication flow. The frontend is built with Next.js and
+                TypeScript, and the backend with .NET 8, Entity Framework Core
+                and a CQRS architecture, using JWT authentication, Cloudinary
+                for media and xUnit and Vitest for testing.
+              </p>
+              <p class="project-note">Private repository</p>
+              <ul class="project-tags">
+                <li>Next.js</li>
+                <li>TypeScript</li>
+                <li>.NET 8</li>
+                <li>EF Core</li>
+                <li>CQRS</li>
+                <li>xUnit</li>
+              </ul>
+            </article>
+          </li>
+          <!-- NATHALIEBASKIN.COM -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">NathalieBaskin.com</h3>
+              <img
+                class="website"
+                src="images/portfolio.png"
+                alt="Start page of the NathalieBaskin.com portfolio website"
+                width="640"
+                height="400"
+                loading="lazy"
+              />
+              <p class="project-description">
+                A portfolio website built with Next.js and React. This modern,
+                responsive site showcases my projects, skills, and experience as
+                a full-stack developer and photographer. It is optimized for
+                performance using Next.js server-side rendering and static
+                generation.
+              </p>
+              <ul class="project-tags">
+                <li>Next.js</li>
+                <li>React</li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://github.com/Namahka/nathalie-portfolio"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub repo →</a
+              >
+            </article>
+          </li>
+          <!-- DIMLIT -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">DIMLIT – In Beta</h3>
+              <img
+                class="dimlit"
+                src="images/dimlit.png"
+                alt="Start page of the DIMLIT mental health app"
+                width="400"
+                height="400"
+                loading="lazy"
+              />
+              <p class="project-description">
+                A progressive web app (PWA) for people experiencing anxiety. It
+                features a live map showing other users’ approximate locations,
+                messages that disappear after 24 hours, a hugs feature, a
+                distract tab with categorized quizzes, and a tips tab with
+                self-regulation techniques. Built with Next.js, TypeScript,
+                Tailwind CSS and Firebase, using a Clean Architecture folder
+                structure.
+              </p>
+              <ul class="project-tags">
+                <li>Next.js</li>
+                <li>TypeScript</li>
+                <li>Firebase</li>
+                <li>PWA</li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://github.com/Namahka/dimlit"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub repo →</a
+              >
+            </article>
+          </li>
+          <!-- UNSEALED -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">UNSEALED – In Progress</h3>
+              <img
+                class="project-media"
+                src="images/unsealed.png"
+                alt="Start page of the UNSEALED 3D action RPG game"
+                width="640"
+                height="400"
+                loading="lazy"
+              />
+              <p class="project-description">
+                A 3D action RPG built with Unity and C#. The project uses a
+                modular architecture with several interconnected core systems,
+                including inventory and equipment systems with dynamic UI
+                pagination, as well as quest and dialogue systems linked to NPC
+                interactions. Technical features include state management with
+                Animator Controllers, player input handling, and camera logic.
+                The UI is built with Canvas and TextMesh Pro, with script-driven
+                panel management and data binding between gameplay and the
+                interface. The project also includes player status, checkpoint,
+                and respawn systems. Character animations use rigged models.
+              </p>
+              <p class="project-note">Private repository</p>
+              <ul class="project-tags">
+                <li>Unity</li>
+                <li>C#</li>
+              </ul>
+            </article>
+          </li>
+          <!-- RIFTHUB -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">RIFTHUB</h3>
+              <video
+                class="project-media"
+                src="videos/rifthub.mp4"
+                width="640"
+                height="400"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Demo video of the RiftHub community application"
+              ></video>
+              <p class="project-description">
+                A full-stack social community web application built for
+                interaction between users. The frontend uses React and Tailwind
+                CSS, while the backend uses SQLite3 as a relational database.
+                Core features include user authentication and management (CRUD
+                operations), friend lists, real-time chat, forums, livestreaming
+                integration, and administrator monitoring.
+              </p>
+              <ul class="project-tags">
+                <li>React</li>
+                <li>Tailwind</li>
+                <li>SQLite3</li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://github.com/Namahka/rifthub"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub repo →</a
+              >
+            </article>
+          </li>
+          <!-- DERMA NORDIC -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">DERMA NORDIC</h3>
+              <video
+                class="project-media"
+                src="videos/dermanordic.mp4"
+                width="640"
+                height="400"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Demo video of the Derma Nordic medical spa application"
+              ></video>
+              <p class="project-description">
+                A single-page application (SPA) for a medical spa, built with
+                Angular and TypeScript. It features a treatment booking system,
+                an e-commerce platform, and SQLite3 database integration. The
+                responsive, user-centered frontend focuses on modern design and
+                straightforward navigation.
+              </p>
+              <ul class="project-tags">
+                <li>Angular</li>
+                <li>TypeScript</li>
+                <li>SQLite3</li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://github.com/Namahka/DermaNordicANGULAR"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub repo →</a
+              >
+            </article>
+          </li>
+          <!-- NABASKI -->
+          <li>
+            <article class="project-card">
+              <h3 class="project-title">Nabaski</h3>
+              <video
+                class="project-media"
+                src="videos/nabaski.mp4"
+                width="640"
+                height="400"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+                aria-label="Demo video of the Nabaski web application"
+              ></video>
+              <p class="project-description">
+                A responsive portfolio web application built with React and an
+                integrated booking system. Visitors can book meetings or
+                consultations through a user-friendly booking interface. The
+                backend uses an SQLite3 database to persist booking and user
+                information.
+              </p>
+              <ul class="project-tags">
+                <li>React</li>
+                <li>SQLite3</li>
+                <li>Booking</li>
+              </ul>
+              <a
+                class="project-link"
+                href="https://github.com/Namahka/NABASKI"
+                target="_blank"
+                rel="noopener noreferrer"
+                >GitHub repo →</a
+              >
+            </article>
+          </li>
+        </ul>
+      </section>
+      <!-- EXPERIENCES -->
+      <section id="experiences" class="section-alt">
+        <p class="section-label">EXPERIENCES</p>
+        <h2 class="section-title">Professional Experiences</h2>
+        <p class="subtitle">Relevant work experience</p>
+        <ul class="experiences-list">
+          <li class="experience-item">
+            <h3>Fullstack Developer Intern</h3>
+            <p>InFiNet Code</p>
+            <p>November 17, 2025 – May 8, 2026.</p>
+            <p class="experience-description">
+              I contributed to the ongoing development of a learning management
+              system (LMS), working across both the frontend and backend as part
+              of a collaborative development team.
+            </p>
+          </li>
+        </ul>
+      </section>
+      <!-- CONTACT -->
+      <section id="contact" class="contact">
+        <p class="section-label">CONTACT</p>
+        <h2 class="section-title">Get in touch</h2>
+        <p class="subtitle">
+          I’m currently seeking a remote developer position. Feel free to reach
+          out!
+        </p>
+        <div class="contact-methods">
+          <a
+            href="https://www.linkedin.com/in/nathalie-baskin-b61790193/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+            >LinkedIn</a
+          >
+          <a href="mailto:namahka@hotmail.com" class="contact-link">Email</a>
+          <a
+            href="https://www.nathaliebaskin.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+            >Website</a
+          >
+          <a
+            href="https://github.com/namahka"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-link"
+            >GitHub</a
+          >
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- UTBILDNING -->
-  <section id="education" class="alt">
-    <div class="container">
-      <div class="section-label">Education</div>
-      <h2 class="serif" style="font-style: italic;">Academic Background</h2>
-      <p class="section-subtitle">Relevant Education</p>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">2026–2028</div>
-          <h3>Blockchain Developer</h3>
-          <div class="org">Medieinstitutet</div>
-          <p>August 2026 – April 2028</p>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">2024–2026</div>
-          <h3>Frontend Developer</h3>
-          <div class="org">EC Utbildning</div>
-          <p>August 26, 2024 – June 5, 2026</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROJEKT -->
-  <section id="projects">
-    <div class="container">
-      <div class="section-label">Projects</div>
-      <h2 class="serif" style="font-style: italic;">What I’ve Built</h2>
-      <p class="section-subtitle">A selection of my work.</p>
-      <div class="projects-grid">
-
-        <div class="project-card">
-          <div class="project-body">
-            <h3>NABASKI</h3>
-             <video width="100%" controls style="border-radius: var(--radius); margin-bottom: 1rem;">
-      <source src="nabaski.mp4" type="video/mp4">
-    </video>
-            <p>A responsive portfolio web application built with React and an integrated booking system. Visitors can book meetings or consultations through a user-friendly booking interface. The backend uses an SQLite3 database to persist booking and user information.</p>
-            <div class="tags">
-              <span class="tag">React</span><span class="tag">SQLite3</span><span class="tag">Booking</span>
-            </div>
-            <a href="https://github.com/Namahka/nabaski" target="_blank" class="repo-link">GitHub repo →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-body">
-            <h3>RIFTHUB</h3>
-             <video width="100%" controls style="border-radius: var(--radius); margin-bottom: 1rem;">
-      <source src="rifthub.mp4" type="video/mp4">
-    </video>
-            <p>A full-stack social community web application built for interaction between users. The frontend uses React and Tailwind CSS, while the backend uses SQLite3 as a relational database. Core features include user authentication and management (CRUD operations), friend lists, real-time chat, forums, livestreaming integration, and administrator monitoring.</p>
-            <div class="tags">
-              <span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">SQLite3</span>
-            </div>
-            <a href="https://github.com/Namahka/rifthub" target="_blank" class="repo-link">GitHub repo →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-body"> 
-            <h3>BINGE BOX</h3>
-            <p>Binge Box is a full-stack platform for film and TV fans. Users can create personal accounts, search for and explore films and TV shows, write reviews, and build their own watchlists. The frontend is built with React and Tailwind CSS for a modern, responsive experience. The backend may integrate with the TMDb API to retrieve film data.</p>
-            <div class="tags">
-              <span class="tag">React</span><span class="tag">JavaScript</span><span class="tag">TMDb API</span>
-            </div>
-            <a href="https://github.com/Namahka/Binge-Box" target="_blank" class="repo-link">GitHub repo →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-body">
-            <h3>DERMA NORDIC</h3>
-             <video width="100%" controls style="border-radius: var(--radius); margin-bottom: 1rem;">
-      <source src="dermanordic.mp4" type="video/mp4">
-    </video>
-            <p>A single-page application (SPA) for a medical spa, built with Angular and TypeScript. It features a treatment booking system, an e-commerce platform, and SQLite3 database integration. The responsive, user-centered frontend focuses on modern design and straightforward navigation.</p>
-            <div class="tags">
-              <span class="tag">Angular</span><span class="tag">TypeScript</span><span class="tag">SQLite3</span>
-            </div>
-            <a href="https://github.com/Namahka/DermaNordicANGULAR" target="_blank" class="repo-link">GitHub repo →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-body">
-            <h3>NathalieBaskin.com – In Progress</h3>
-             <img src="website.png" alt="Website" style="width: 100%; border-radius: 12px; margin-bottom: 1rem;">
-            <p>A portfolio website built with Next.js and React. This modern, responsive site showcases my projects, skills, and experience as a full-stack developer. It is optimized for performance using Next.js server-side rendering and static generation.</p>
-            <div class="tags">
-              <span class="tag">Next.js</span>
-            </div>
-            <a href="https://www.nathaliebaskin.com" target="_blank" class="repo-link">Website →</a>
-          </div>
-        </div>
-
-        <div class="project-card">
-          <div class="project-body">
-            <h3>UNSEALED – In Progress</h3>
-            <p>A 3D action RPG built with Unity and C#. The project uses a modular architecture with several interconnected core systems, including inventory and equipment systems with dynamic UI pagination, as well as quest and dialogue systems linked to NPC interactions. Technical features include state management with Animator Controllers, player input handling, and camera logic. The UI is built with Canvas and TextMesh Pro, with script-driven panel management and data binding between gameplay and the interface. The project also includes player status, checkpoint, and respawn systems. Character animations use rigged models.</p>
-            <div class="tags">
-              <span class="tag">C#</span><span class="tag">Game Development</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ERFARENHET -->
-  <section id="experience" class="alt">
-    <div class="container">
-      <div class="section-label">Experience</div>
-      <h2 class="serif" style="font-style: italic;">Professional Experience</h2>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">2025–2026</div>
-          <h3>Internship – Full-Stack Developer</h3>
-          <div class="org">InFiNetCode</div>
-          <p>November 17, 2025 – May 8, 2026. I contributed to the ongoing development of a learning management system (LMS), working across both the frontend and backend as part of a collaborative development team.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KONTAKT -->
-  <section id="contact" class="contact">
-    <div class="container">
-      <div class="section-label">Contact</div>
-      <h2>Want to learn more? Get in touch!</h2>
-      <div class="contact-grid" style="margin-top: 2.5rem;">
-        <div class="contact-info">
-          <div class="info-card">
-            <div><strong>Email</strong><span>namahka@hotmail.com</span></div>
-          </div>
-          <div class="info-card">
-            <div><strong>Website</strong><span>nathaliebaskin.com</span></div>
-          </div>
-          <div class="info-card">
-            <div><strong>GitHub</strong><span>github.com/namahka</span></div>
-          </div>
-        </div>
-        <form onsubmit="event.preventDefault(); window.location.href='mailto:namahka@hotmail.com?subject=Hello!&body=' + encodeURIComponent(this.message.value);">
-          <div>
-            <label for="name">Name</label>
-            <input id="name" type="text" name="name" placeholder="Your name" required />
-          </div>
-          <div>
-            <label for="email">Email</label>
-            <input id="email" type="email" name="email" placeholder="you@example.com" required />
-          </div>
-          <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Write your message here..." required></textarea>
-          </div>
-          <button type="submit">Send message →</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 Nathalie Baskin · <a href="#hero" style="color: var(--gold); font-weight: 600;">Back to top ↑</a>
-  </footer>
-
-  <a href="#hero" class="to-top" title="Back to top">↑</a>
-
-</body>
+      </section>
+    </main>
+  </body>
 </html>
