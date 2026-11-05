@@ -22,10 +22,6 @@ A responsive portfolio website where I present myself, my skills, my education a
 | **Education**   | Timeline of my studies                                          |
 | **Projects**    | Eleven projects with screenshots or demo videos, tags and links |
 | **Experiences** | Timeline of my work experience                                  |
-| **Contact**     | Contact links and a contact form                                |
-| **Aside**       | A collapsible panel with quick facts                            |
-| **Footer**      | Email and website                                               |
-
 ## Accessibility review
 
 All tests were run on the published site in a private window so browser extensions didn't affect the results.
@@ -61,16 +57,9 @@ The remaining issues are all inside Firefox's built-in video controls that the b
 
 **Popover API for the mobile menu:** The dropdown uses the `popover` and `popovertarget` attributes instead of JavaScript. The browser handles opening, closing and telling screen readers if the menu is open or not. On larger screens my CSS overrides the popover styles so the list is always visible.
 
-**`details` and `summary` for the aside:** The collapsible panel is built with native HTML so it works without JavaScript and is accessible by default. The arrow has `aria-hidden="true"` and the text "Quick facts" is kept for screen readers with a `.visually-hidden` class.
-
-**The aside is placed after `main`:** Screen readers and keyboard users reach the main content first. Its position on the screen is handled with CSS.
-
 **Lighter orange on light green backgrounds:** The original orange `#d4824a` fails the WCAG contrast requirement on the lighter green backgrounds, so small text there uses `#e3925a` which passes.
 
 **Hero grid placement:** On larger screens `.hero > *` places all hero content in the first column. `.hero-photo` has the same specificity but comes later in the file, so it overrides that rule and moves the photo to the second column.
 
 **Uppercase project names:** The project names are written in uppercase in the HTML because that is how the products are named, not as a styling choice. Section labels like "About" and "Skills" are written in normal case and made uppercase with `text-transform` in CSS.
 
-**Customizable dropdown:** The contact form dropdown uses `appearance: base-select` for a custom style, wrapped in `@supports` so browsers without support show the native dropdown instead.
-
-**`name="_replyto"`:** A Formspree convention that sets the sender's email as the reply-to address.
