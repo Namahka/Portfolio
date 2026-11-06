@@ -200,6 +200,11 @@ section[id] {
   border-radius: var(--radius-pill);
 }
 
+/* Puts the internship dates on their own line under "Seeking..." */
+.hero-badge-dates {
+  display: block;
+}
+
 #hero h1 {
   margin-bottom: 1.2rem;
   font-family: var(--font-heading);
