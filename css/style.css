@@ -437,9 +437,10 @@ section[id] {
   border-radius: var(--radius);
 }
 
-/* The dimlit screenshot is a tall mobile screen so it is shown
-   in full instead of being cropped like the other images */
-.dimlit {
+/* Tall mobile screenshots are shown in full instead of being
+   cropped like the other images */
+.dimlit,
+.project-media-tall {
   aspect-ratio: auto;
   width: auto;
   max-width: 100%;
