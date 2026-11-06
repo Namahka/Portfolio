@@ -20,7 +20,7 @@ A responsive portfolio website where I present myself, my skills, my education a
 | **About**       | A short presentation of who I am                                |
 | **Skills**      | Backend, frontend, tools and currently learning, grouped with icons |
 | **Education**   | Timeline of my studies                                          |
-| **Projects**    | Eleven projects with screenshots or demo videos, tags and links |
+| **Projects**    | Twelve projects with screenshots or demo videos, tags and links |
 | **Experiences** | Timeline of my work experience                                  |
 ## Accessibility review
 
