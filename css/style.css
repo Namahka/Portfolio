@@ -442,6 +442,13 @@ section[id] {
   border-radius: var(--radius);
 }
 
+/* Videos have different aspect ratios, so they are shown in full
+   (with dark bars) instead of being cropped to fill the frame */
+video.project-media {
+  object-fit: contain;
+  background-color: #000;
+}
+
 /* Tall mobile screenshots are shown in full instead of being
    cropped like the other images */
 .dimlit,
